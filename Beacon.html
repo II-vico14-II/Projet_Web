@@ -1,0 +1,288 @@
+    <!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <title> Top 5 des destinations </title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link rel="stylesheet" href="WEB_PROJET.css">
+    </head>
+
+    <body>
+
+        <header>
+            <nav>
+                <label for="menu-mobile" class="menu-mobile"> Menu </label>
+                <input type="checkbox" id="menu-mobile" role="button">
+                <ul>
+                    <li class="menu1"><a href="TP2.html">Accueil</a>
+                        <ul class="submenu">
+                            <li><a href="#"> definir</a></li>
+                            <li><a href="#"> a definir</a></li>
+                            <li><a href="#"> Gruyere</a></li>
+                            <li><a href="#"> Ketchup</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu2"><a href="TP1.html"> Les îles</a>
+                        <ul class="submenu">
+                            <li><a href="#"> Fidji</a></li>
+                            <li><a href="#"> Bali</a></li>
+                            <li><a href="#"> Borabora</a></li>
+                            <li><a href="#"> Canaries</a></li>
+                            <li><a href="#"> Maldives</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu3"><a href="algorithme.html">A propos</a></li>
+                        <ul class="submenu">
+                            <li><a href="#"> qui sommes nous ?</a></li>
+                            <li><a href="#"> CGU</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu4"><a href="bouton.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <hr class="separator"> 
+
+            <img class="acc" src="page.jpg" alt="Bienvenue sur notre site" title="Bienvenue sur My trip.com"/>
+        </header>
+
+        <hr class="separator">
+
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec sagittis massa. Nulla facilisi. Cras id arcu lorem, et semper purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel enim mi, in lobortis sem. Vestibulum luctus elit eu libero ultrices id fermentum sem sagittis. Nulla imperdiet mauris sed sapien dignissim id aliquam est aliquam. Maecenas non odio ipsum, a elementum nisi. Mauris non erat eu erat placerat convallis. Mauris in pretium urna. Cras laoreet molestie odio, consequat consequat velit commodo eu. Integer vitae lectus ac nunc posuere pellentesque non at eros. Suspendisse non lectus lorem.</p>
+                <p>Vivamus sed libero nec mauris pulvinar facilisis ut non sem. Quisque mollis ullamcorper diam vel faucibus. Vestibulum sollicitudin facilisis feugiat. Nulla euismod sodales hendrerit. Donec quis orci arcu. Vivamus fermentum magna a erat ullamcorper dignissim pretium nunc aliquam. Aenean pulvinar condimentum enim a dignissim. Vivamus sit amet lectus at ante adipiscing adipiscing eget vitae felis. In at fringilla est. Cras id velit ut magna rutrum commodo. Etiam ut scelerisque purus. Duis risus elit, venenatis vel rutrum in, imperdiet in quam. Sed vestibulum, libero ut bibendum consectetur, eros ipsum ultrices nisl, in rutrum diam augue non tortor. Fusce nec massa et risus dapibus aliquam vitae nec diam.</p>
+                <p>Phasellus ligula massa, congue ac vulputate non, dignissim at augue. Sed auctor fringilla quam quis porttitor. Praesent vitae dignissim magna. Pellentesque quis sem purus, vel elementum mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur euismod urna. In hac habitasse platea dictumst. Quisque tincidunt porttitor vestibulum. Ut iaculis, lacus at molestie lacinia, ipsum mi adipiscing ligula, vel mollis sem risus eu lectus. Nunc elit quam, rutrum ut dignissim sit amet, egestas at sem.</p>
+
+                <video src="avengers.mp4" poster="AVENGERS.jpg" controls width="700" height="400"> Upload </video>
+
+                <form action="#" name="form" id="rotation">
+
+                    <div class="form">
+                            <div>
+                                <label for="Pseudo"></label>
+                                <input type="text" placeholder="Pseudo" id="pseudo" name="pseudo" required>
+                            </div>
+                            <div>
+                                <label for="Note"></label>
+                                <input type="number" placeholder="Note" min=0 max=5 id="note" name="note" required>
+                            </div>
+                            <div>
+                                <label for="commentaire"></label>
+                                <textarea type="text" placeholder="Commentaire" id="commentaire" name="commentaire" required rows="7" cols="70"></textarea>
+                            </div>
+                    </div>
+                    
+                    <div class="button">
+                        <button onclick="add()" type="button" name="ajout" id="ajout">Ajouter</button>
+                    </div>
+                </form>
+
+                <div class="tab">
+                    <main id="main_1">
+                        <p id="title_1"><b>Espace commentaires</b></p>
+                        <table id="tab_1">
+            
+                        </table>
+                    </main>
+                </div>
+
+                <script type="text/javascript">
+
+                    function add()
+                    {
+                            loginForm = document.forms.form;
+                            const prenote = loginForm["pseudo"];
+                            const note = loginForm["note"];
+                            const commentaire = loginForm["commentaire"];
+                            console.log(prenote.value, note.value, commentaire.value);
+
+                            if((check_Args(prenote.value,note.value,commentaire.value) === true))
+                            {
+                                console.log(prenote.value, note.value, commentaire.value);
+                                createLine(prenote.value, note.value, commentaire.value);
+                            }
+                            else
+                            {
+                                console.log("Arguments invalides");
+                                return;
+                            }
+                        }
+
+                    function showUsers()
+                    {
+                                document.querySelector("#main_1").style.display = "contents";
+                        document.querySelector("#main_2").style.display = "none";
+                        }
+
+                        function check_Args(prenote,note,commentaire)
+                        {
+                            if(((prenote) === "") || ((note) === "") || ((commentaire) === ""))
+                            {
+                                return false;
+                            }
+                            return true;
+                        }
+
+                        function createLine(prenote, note, commentaire) 
+                    {
+                            const td_prenote = document.createElement('td');
+                            const td_note = document.createElement('td');
+                            const td_commentaire = document.createElement('td');
+
+                            td_prenote.textContent = prenote;
+                            td_note.textContent = note;
+                            td_commentaire.textContent = commentaire;
+                            
+                            const tr = document.createElement('tr');
+                            tr.appendChild(td_prenote);
+                            tr.appendChild(td_note);
+                            tr.appendChild(td_commentaire);
+
+                            const table = document.getElementById("tab_1");
+                            table.appendChild(tr);
+                        }
+
+                        function init_page()
+                        {
+                            createLine("Pseudo","Note /5","Commentaire");
+                            showUsers();
+                        }
+
+                        init_page();
+                </script>
+                
+
+            </article>
+
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <img src="bulle.png" alt="" id="fleche_bulle" />
+                <p id="photo_zozor"><img src="zozor_classe.png" alt="Photo de Zozor" /></p>
+                <p>Laisse-moi le temps de me présenter: je m'appelle Zozor, je suis né un 23 novembre 2005.</p>
+                <p>Bien maigre, n'est-ce pas ? C'est pourquoi, aujourd'hui, j'ai décidé d'écrire ma biographie afin que vous sachiez qui je suis réellement.</p>
+                <p><img src="Efrei.jpg" alt="Facebook" /><img src="facebook.png" alt="Twitter" /><img src="flickr.png" alt="Vimeo" /><img src="vimeo.png" alt="Flickr" /><img src="vimeo.png" alt="RSS" /></p>
+            </aside>
+        </section>
+
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec sagittis massa. Nulla facilisi. Cras id arcu lorem, et semper purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel enim mi, in lobortis sem. Vestibulum luctus elit eu libero ultrices id fermentum sem sagittis. Nulla imperdiet mauris sed sapien dignissim id aliquam est aliquam. Maecenas non odio ipsum, a elementum nisi. Mauris non erat eu erat placerat convallis. Mauris in pretium urna. Cras laoreet molestie odio, consequat consequat velit commodo eu. Integer vitae lectus ac nunc posuere pellentesque non at eros. Suspendisse non lectus lorem.</p>
+                <p>Vivamus sed libero nec mauris pulvinar facilisis ut non sem. Quisque mollis ullamcorper diam vel faucibus. Vestibulum sollicitudin facilisis feugiat. Nulla euismod sodales hendrerit. Donec quis orci arcu. Vivamus fermentum magna a erat ullamcorper dignissim pretium nunc aliquam. Aenean pulvinar condimentum enim a dignissim. Vivamus sit amet lectus at ante adipiscing adipiscing eget vitae felis. In at fringilla est. Cras id velit ut magna rutrum commodo. Etiam ut scelerisque purus. Duis risus elit, venenatis vel rutrum in, imperdiet in quam. Sed vestibulum, libero ut bibendum consectetur, eros ipsum ultrices nisl, in rutrum diam augue non tortor. Fusce nec massa et risus dapibus aliquam vitae nec diam.</p>
+                <p>Phasellus ligula massa, congue ac vulputate non, dignissim at augue. Sed auctor fringilla quam quis porttitor. Praesent vitae dignissim magna. Pellentesque quis sem purus, vel elementum mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur euismod urna. In hac habitasse platea dictumst. Quisque tincidunt porttitor vestibulum. Ut iaculis, lacus at molestie lacinia, ipsum mi adipiscing ligula, vel mollis sem risus eu lectus. Nunc elit quam, rutrum ut dignissim sit amet, egestas at sem.</p>
+            </article>
+
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <img src="bulle.png" alt="" id="fleche_bulle" />
+                <p id="photo_zozor"><img src="zozor_classe.png" alt="Photo de Zozor" /></p>
+                <p>Laisse-moi le temps de me présenter: je m'appelle Zozor, je suis né un 23 novembre 2005.</p>
+                <p>Bien maigre, n'est-ce pas ? C'est pourquoi, aujourd'hui, j'ai décidé d'écrire ma biographie afin que vous sachiez qui je suis réellement.</p>
+                <p><img src="Efrei.jpg" alt="Facebook" /><img src="facebook.png" alt="Twitter" /><img src="flickr.png" alt="Vimeo" /><img src="vimeo.png" alt="Flickr" /><img src="vimeo.png" alt="RSS" /></p>
+            </aside>
+        </section>
+
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec sagittis massa. Nulla facilisi. Cras id arcu lorem, et semper purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel enim mi, in lobortis sem. Vestibulum luctus elit eu libero ultrices id fermentum sem sagittis. Nulla imperdiet mauris sed sapien dignissim id aliquam est aliquam. Maecenas non odio ipsum, a elementum nisi. Mauris non erat eu erat placerat convallis. Mauris in pretium urna. Cras laoreet molestie odio, consequat consequat velit commodo eu. Integer vitae lectus ac nunc posuere pellentesque non at eros. Suspendisse non lectus lorem.</p>
+                <p>Vivamus sed libero nec mauris pulvinar facilisis ut non sem. Quisque mollis ullamcorper diam vel faucibus. Vestibulum sollicitudin facilisis feugiat. Nulla euismod sodales hendrerit. Donec quis orci arcu. Vivamus fermentum magna a erat ullamcorper dignissim pretium nunc aliquam. Aenean pulvinar condimentum enim a dignissim. Vivamus sit amet lectus at ante adipiscing adipiscing eget vitae felis. In at fringilla est. Cras id velit ut magna rutrum commodo. Etiam ut scelerisque purus. Duis risus elit, venenatis vel rutrum in, imperdiet in quam. Sed vestibulum, libero ut bibendum consectetur, eros ipsum ultrices nisl, in rutrum diam augue non tortor. Fusce nec massa et risus dapibus aliquam vitae nec diam.</p>
+                <p>Phasellus ligula massa, congue ac vulputate non, dignissim at augue. Sed auctor fringilla quam quis porttitor. Praesent vitae dignissim magna. Pellentesque quis sem purus, vel elementum mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur euismod urna. In hac habitasse platea dictumst. Quisque tincidunt porttitor vestibulum. Ut iaculis, lacus at molestie lacinia, ipsum mi adipiscing ligula, vel mollis sem risus eu lectus. Nunc elit quam, rutrum ut dignissim sit amet, egestas at sem.</p>
+            </article>
+
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <img src="bulle.png" alt="" id="fleche_bulle" />
+                <p id="photo_zozor"><img src="zozor_classe.png" alt="Photo de Zozor" /></p>
+                <p>Laisse-moi le temps de me présenter: je m'appelle Zozor, je suis né un 23 novembre 2005.</p>
+                <p>Bien maigre, n'est-ce pas ? C'est pourquoi, aujourd'hui, j'ai décidé d'écrire ma biographie afin que vous sachiez qui je suis réellement.</p>
+                <p><img src="Efrei.jpg" alt="Facebook" /><img src="facebook.png" alt="Twitter" /><img src="flickr.png" alt="Vimeo" /><img src="vimeo.png" alt="Flickr" /><img src="vimeo.png" alt="RSS" /></p>
+            </aside>
+        </section>
+
+        <section>
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec sagittis massa. Nulla facilisi. Cras id arcu lorem, et semper purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel enim mi, in lobortis sem. Vestibulum luctus elit eu libero ultrices id fermentum sem sagittis. Nulla imperdiet mauris sed sapien dignissim id aliquam est aliquam. Maecenas non odio ipsum, a elementum nisi. Mauris non erat eu erat placerat convallis. Mauris in pretium urna. Cras laoreet molestie odio, consequat consequat velit commodo eu. Integer vitae lectus ac nunc posuere pellentesque non at eros. Suspendisse non lectus lorem.</p>
+                <p>Vivamus sed libero nec mauris pulvinar facilisis ut non sem. Quisque mollis ullamcorper diam vel faucibus. Vestibulum sollicitudin facilisis feugiat. Nulla euismod sodales hendrerit. Donec quis orci arcu. Vivamus fermentum magna a erat ullamcorper dignissim pretium nunc aliquam. Aenean pulvinar condimentum enim a dignissim. Vivamus sit amet lectus at ante adipiscing adipiscing eget vitae felis. In at fringilla est. Cras id velit ut magna rutrum commodo. Etiam ut scelerisque purus. Duis risus elit, venenatis vel rutrum in, imperdiet in quam. Sed vestibulum, libero ut bibendum consectetur, eros ipsum ultrices nisl, in rutrum diam augue non tortor. Fusce nec massa et risus dapibus aliquam vitae nec diam.</p>
+                <p>Phasellus ligula massa, congue ac vulputate non, dignissim at augue. Sed auctor fringilla quam quis porttitor. Praesent vitae dignissim magna. Pellentesque quis sem purus, vel elementum mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur euismod urna. In hac habitasse platea dictumst. Quisque tincidunt porttitor vestibulum. Ut iaculis, lacus at molestie lacinia, ipsum mi adipiscing ligula, vel mollis sem risus eu lectus. Nunc elit quam, rutrum ut dignissim sit amet, egestas at sem.</p>
+            </article>
+
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <img src="bulle.png" alt="" id="fleche_bulle" />
+                <p id="photo_zozor"><img src="zozor_classe.png" alt="Photo de Zozor" /></p>
+                <p>Laisse-moi le temps de me présenter: je m'appelle Zozor, je suis né un 23 novembre 2005.</p>
+                <p>Bien maigre, n'est-ce pas ? C'est pourquoi, aujourd'hui, j'ai décidé d'écrire ma biographie afin que vous sachiez qui je suis réellement.</p>
+                <p><img src="Efrei.jpg" alt="Facebook" /><img src="facebook.png" alt="Twitter" /><img src="flickr.png" alt="Vimeo" /><img src="vimeo.png" alt="Flickr" /><img src="vimeo.png" alt="RSS" /></p>
+            </aside>
+        </section>
+
+        <footer>
+            <div class="main-content">
+                <div class="left box">
+                    <h3> About us </h3>
+                    <div class="content">
+                        <p> lorem ipsum sic dolor ament zihjap ozae ioaioz iaoizoap iaopziao izaopziaozp  </p>
+                        <div class="social">
+                            <a href="#"><span class="fab fa-facebook-f"> </span> </a>
+                            <a href="#"><span class="fab fa-twitter"> </span> </a>
+                            <a href="#"><span class="fab fa-instagram"> </span> </a>
+                            <a href="#"><span class="fab fa-youtube"> </span> </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center box">
+                    <h3> Adresse </h3>
+                    <div class="content">
+                        <div class="place">
+                            <span class="fas fa-map-marker-alt"> </span>
+                            <span class="text"> Boulogne, France </span>
+                        </div>
+                        </br>
+                        <div class="phone">
+                            <span class="fas fa-phone-alt"> </span>
+                            <span class="text"> +33659872354 </span>
+                        </div>
+                        </br>
+                        <div class="">
+                            <span class="fas fa-envelope"> </span>
+                            <span class="text"> teamweb@efrei.com </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right box">
+                    <h3> Contactez nous ! </h3>
+                    <div class="content">
+                        <form action="#">
+                            <div class="email">
+                                <div class="text"> Email *</div> 
+                                <input type="email" name="email" id="email" placeholder="nomprenom@gmail.com"required>
+                            </div>
+                            <div class="msg">
+                                <div class="text"> Message *</div>
+                                <textarea rows="2" cols="25" placeholder="saisir votre message..." required></textarea>
+                                </br>
+                                <label for="cocher"> souhaitez vous recevoir la newsletter ? *</label>
+                                <select name="cocher" id="cocher">
+                                    <option value="oui"> oui</option>
+                                    <option value="non"> non</option> 
+                                </select>
+                            </div>
+
+                            </br>
+
+                            <div class="btn">
+                                <button type="submit"> Envoyer </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
